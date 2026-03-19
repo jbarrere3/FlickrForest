@@ -185,7 +185,8 @@ compile_flickr = function(flickr_files){
       # Read file i
       data.i = fread(flickr_files[i], fill = TRUE) %>%
         select(-URL) %>%
-        mutate(pnr = gsub(".+\\/", "", gsub("\\_.+", "", flickr_files[i])))
+        mutate(pnr = gsub(".+\\/", "", gsub("\\_.+", "", flickr_files[i])), 
+               ID = as.numeric(ID))
       
       # Add to the output dataset
       if(i == 1) out = data.i

@@ -59,7 +59,11 @@ list(
 
   # Plot the location of pictures in each PNR
   tar_target(fig_flickr_location, plot_location_pnr(
-    flickr_data, pnr_files, "export/fig/fig_location_flickr.jpg"), format = "file")
+    flickr_data, pnr_files, "export/fig/fig_location_flickr.jpg"), format = "file"), 
+  
+  # Export the location of photos
+  tar_target(csv_location, write_on_disk(flickr_data, "export/csv/flickr_location.csv"), 
+             format = "file")
   
 )
   
